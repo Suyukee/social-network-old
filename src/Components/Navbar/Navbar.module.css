@@ -1,0 +1,17 @@
+.nav {
+	margin: 15px;
+	padding: 10px;
+	width: 100px;
+	position: relative;
+	background-color: #03131c;
+	border-radius: 20px;
+}
+
+.item {
+	margin: 20px;
+}
+
+.item a{
+	color: #94cdf0;
+	text-decoration: none;
+}
