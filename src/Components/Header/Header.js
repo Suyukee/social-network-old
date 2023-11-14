@@ -4,7 +4,7 @@ const Header = () => {
 	return (
 		<header className={ s.header }>
 			<div className={ s.content }>
-				<img className={ s.img } src="https://www.shareicon.net/data/128x128/2016/07/08/117035_media_512x512.png" height="40px" />
+				<img className={ s.img } height='40px' width='40px' alt='' src='https://www.svgrepo.com/show/475654/github-color.svg' />
 				<span className={ s.span }>Social Network</span>
 			</div>
 		</header>

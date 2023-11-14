@@ -12,16 +12,21 @@
 	width: 316px;
 }
 
+.dialogs h4 {
+	margin: 10px 15px;
+}
+
 .item {
 	display: flex;
+	position: relative;
 	height: 62px;
 	padding-left: 15px;
-	border-bottom: 1px solid rgba(148, 205, 240, 0.2);
+	border-top: 1px solid rgba(148, 205, 240, 0.2);
 }
 
 .item:hover {
 	background-color: #052131;
-	border-bottom: 1px solid rgba(148, 205, 240, 0.1);
+	border-top: 1px solid rgba(148, 205, 240, 0.1);
 }
 
 .item img {
@@ -31,20 +36,33 @@
 	border-radius: 50%;
 }
 
-.item p {
-	margin: 0;
+.item a {
 	padding: 16px;
+	text-decoration: none;
+	color: #fff;
 }
+
+.item a::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
 
 .messages {
 	width: 100%;
 	height: 90vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	border-left: 1px solid rgba(148, 205, 240, 0.2);
 }
 
-.messages h3 {
-	text-align: center;
+.messages .dialog {
+	margin: 30px 0 40px 20px;
+}
+
+.messages .dialog span {
+	padding: 15px 25px;
+	border-radius: 10px;
+	background-color: #052131;
 }

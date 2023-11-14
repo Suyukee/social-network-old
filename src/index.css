@@ -1,8 +1,11 @@
+* {
+	margin: 0;
+}
+
 body {
-  margin: 0;
-  font-family: Inter;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: Inter;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	background-color: #0a171e;
 }
 
