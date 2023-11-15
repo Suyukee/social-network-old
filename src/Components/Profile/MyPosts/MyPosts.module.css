@@ -3,26 +3,40 @@
     margin-bottom: 20px;
 }
 
-.item {
-    margin: 20px 30px;
-    padding: 30px;
-    background-color: #052131;
-    border-radius: 10px;
-    /* box-shadow: 0 5px 10px #000; */
-}
-
 .post {
-    margin: 20px 30px;
+    margin: 20px 30px 0 30px;
 }
 
 .post textarea {
-    padding: 5px 10px;
+    padding: 10px 15px;
+    margin-right: 60px;
     width: 100%;
     min-height: 100px;
     border-radius: 10px;
-    color: #fff;
-    font-size: 18px;
     background-color: #052131;
     border: none;
     resize: none;
+    font-family: Inter;
+    font-size: 18px;
+    color: #fff;
+}
+
+.post textarea::placeholder{
+    color:rgba(148, 205, 240, 0.2);
+}
+
+.post .button {
+    display: flex;
+    justify-content: right;
+}
+
+.post button {
+    margin: 10px 0 30px 0;
+    padding: 15px 25px;
+    color: #fff;
+    background-color: #94cdf0;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
 }

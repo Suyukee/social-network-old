@@ -9,10 +9,13 @@
 
 .item {
 	position: relative;
-	height: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 35px;
 	border-radius: 10px;
 	padding-left: 15px;
-	padding-top: 12px;
+
 	font-size: 14px;
 }
 

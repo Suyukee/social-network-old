@@ -1,0 +1,14 @@
+.item {
+    margin: 10px 30px;
+    padding: 25px;
+    background-color: #052131;
+    border-radius: 10px;
+}
+
+.item p {
+    margin-bottom: 15px;
+}
+
+.item span {
+    color: #ccc;
+}
