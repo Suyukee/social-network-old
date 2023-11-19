@@ -1,0 +1,9 @@
+.dialog {
+	margin: 30px 0 40px 20px;
+}
+
+.dialog span {
+	padding: 15px 25px;
+	border-radius: 10px;
+	background-color: #052131;
+}
