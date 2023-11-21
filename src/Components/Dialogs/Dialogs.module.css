@@ -16,8 +16,41 @@
 	margin: 10px 15px;
 }
 
-.messages {
+.chat {
 	width: 100%;
 	height: 90vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	border-left: 1px solid rgba(148, 205, 240, 0.2);
+}
+
+.input {
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
+.input textarea {
+	margin-right: 5px;
+	width: 400px;
+	height: 46px;
+	padding: 10px 10px;
+	font-family: Inter;
+	font-size: 16px;
+	border: none;
+	border-radius: 10px;
+	background-color: #052131;
+	color: #fff;
+	resize: none;
+}
+
+.input button {
+	margin-left: 5px;
+	width: 70px;
+	height: 46px;
+	background-color: #94cdf0;
+	border: none;
+	border-radius: 10px;
 }
