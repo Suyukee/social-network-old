@@ -1,4 +1,6 @@
-let rerenderEntireTree = () => {};
+let rerenderEntireTree = () => {
+	console.log('State changed');
+};
 
 let state = {
 	profilePage : {
@@ -26,7 +28,9 @@ let state = {
 	}
 };
 
-export let addPost = () => {
+window.state = state;
+
+export const addPost = () => {
 	let newPost = {
 		id: 3,
 		message: state.profilePage.newPostText,
