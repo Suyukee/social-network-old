@@ -21,6 +21,10 @@
     color: #fff;
 }
 
+.post textarea:focus {
+	outline: none;
+}
+
 .post textarea::placeholder{
     color:rgba(148, 205, 240, 0.2);
 }

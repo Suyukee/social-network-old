@@ -46,6 +46,10 @@
 	resize: none;
 }
 
+.input textarea:focus {
+	outline: none;
+}
+
 .input button {
 	margin-left: 5px;
 	width: 70px;
