@@ -20,7 +20,6 @@ const MyPosts = (props) => {
 
 	return (
 		<div className={s.content}>
-			<h3>My posts</h3>
 			<div className={s.post}>
 				<textarea
 					ref={newPostElement}
