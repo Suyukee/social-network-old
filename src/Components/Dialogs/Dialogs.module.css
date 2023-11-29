@@ -1,60 +1,47 @@
 .content {
-	margin: 15px;
-	width: 911px;
-	display: flex;
-	justify-content: space-between;
-	border-radius: 20px;
-	background-color: #03131c;
+	display: grid;
+	grid-template-columns: 28.125rem auto;
+  grid-template-rows: 100%;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #121212;
+}
+
+.content .dialogs {
+	grid-row-start: 1;
+  grid-column-start: 1;
+	background-color: #171717;
+}
+
+.content .chat {
+	grid-row-start: 1;
+  grid-column-start: 2;
+	display: grid;
+	grid-template-columns: 100%;
+  grid-template-rows: 95% 5%;
 	color: #fff;
 }
 
-.dialogs {
-	width: 316px;
-}
-
-.dialogs h4 {
-	margin: 10px 15px;
-}
-
-.chat {
-	width: 100%;
-	height: 90vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	border-left: 1px solid rgba(148, 205, 240, 0.2);
+.messages {
+	width: 600px;
+	margin: 0 auto;
 }
 
 .input {
-	height: 50px;
+	grid-row-start: 2;
+  grid-column-start: 1;
 	display: flex;
 	justify-content: center;
-	margin-bottom: 15px;
+	width: 100%;
 }
 
 .input textarea {
-	margin-right: 5px;
-	width: 400px;
-	height: 46px;
-	padding: 10px 10px;
-	font-family: Inter;
-	font-size: 16px;
-	border: none;
-	border-radius: 10px;
-	background-color: #052131;
-	color: #fff;
-	resize: none;
-}
-
-.input textarea:focus {
-	outline: none;
+	width: 500px;
+	margin: 10px;
 }
 
 .input button {
-	margin-left: 5px;
-	width: 70px;
-	height: 46px;
-	background-color: #94cdf0;
-	border: none;
-	border-radius: 10px;
+	margin: 10px;
+	width: 60px;
 }

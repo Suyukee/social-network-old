@@ -1,23 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css'
+import ProfileIcon from './ProfileIcon';
+import DialogsIcon from './DialogsIcon';
 
 const Navbar = () => {
 	return (
 		<nav className={s.nav}>
 			<div className={s.item}>
-				<NavLink to="/profile">Profile</NavLink>
+				<NavLink to="/profile"><ProfileIcon /></NavLink>
 			</div>
 			<div className={s.item}>
-				<NavLink to="/dialogs">Messages</NavLink>
-			</div>
-			<div className={s.item}>
-				<NavLink to="/news">News</NavLink>
-			</div>
-			<div className={s.item}>
-				<NavLink to="/music">Music</NavLink>
-			</div>
-			<div className={s.item}>
-				<NavLink to="/settings">Settings</NavLink>
+				<NavLink to="/dialogs"><DialogsIcon /></NavLink>
 			</div>
 		</nav>
 	);

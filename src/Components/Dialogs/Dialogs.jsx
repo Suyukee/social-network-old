@@ -23,7 +23,6 @@ const Dialogs = (props) => {
 	return (
 		<div className={s.content}>
 			<div className={s.dialogs}>
-				<h4>Dialogs</h4>
 				{dialogsElements}
 			</div>
 			<div className={s.chat}>
