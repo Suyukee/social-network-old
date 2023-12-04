@@ -1,7 +1,8 @@
 .content {
 	display: flex;
-	background-color: #121212;
+	background-color: #171717;
 	margin: 15px;
+	border-radius: 20px;
 }
 
 .content img {

@@ -19,6 +19,7 @@ const MyPosts = (props) => {
 
 	return (
 		<div className={s.content}>
+			{postsElements}
 			<div className={s.post}>
 				<textarea
 					ref={newPostElement}
@@ -30,7 +31,7 @@ const MyPosts = (props) => {
 					<button onClick={onAddPost}>Add post</button>
 				</div>
 			</div>
-			{postsElements}
+			
 		</div>
 	);
 }

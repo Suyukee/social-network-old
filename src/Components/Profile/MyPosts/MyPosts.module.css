@@ -1,10 +1,16 @@
+.content {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
 .post {
-    background-color: #121212;
+    background-color: #171717;
     width: 60rem;
     display: flex;
     justify-content: space-between;
     margin: 15px;
     padding: 10px 15px;
+		border-radius: 10px;
 }
 
 .post textarea {
@@ -13,7 +19,7 @@
     resize: none;
     font-family: Inter;
     font-size: 18px;
-    background-color: #121212;
+    background-color: #171717;
     color: #fff;
 }
 
