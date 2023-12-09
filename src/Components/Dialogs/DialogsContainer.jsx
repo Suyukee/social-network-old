@@ -4,9 +4,9 @@ import Dialogs from './Dialogs';
 
 let mapStateToProps = (state) => {
 	return {
-		dialogsPage: state.dialogsPage
-	}
-}
+		dialogsPage: state.dialogsPage,
+	};
+};
 
 let mapDispatchToProps = (dispatch) => {
 	return {
@@ -15,9 +15,9 @@ let mapDispatchToProps = (dispatch) => {
 		},
 		sendMessage: () => {
 			dispatch(sendMessageCreator());
-		}
-	}
-}
+		},
+	};
+};
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 

@@ -5,9 +5,9 @@ import MyPosts from './MyPosts';
 let mapStateToProps = (state) => {
 	return {
 		posts: state.profilePage.posts,
-		newPostText: state.profilePage.newPostText
-	}
-}
+		newPostText: state.profilePage.newPostText,
+	};
+};
 
 let mapDispatchToProps = (dispatch) => {
 	return {
@@ -17,9 +17,9 @@ let mapDispatchToProps = (dispatch) => {
 		updateNewPostText: (text) => {
 			let action = onPostChangeActionCreator(text);
 			dispatch(action);
-		}
-	}
-}
+		},
+	};
+};
 
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 

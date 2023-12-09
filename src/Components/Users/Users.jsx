@@ -1,18 +1,32 @@
-import styles from './Users.module.css'
+import styles from './Users.module.css';
 
 const Users = (props) => {
 	return (
 		<div className={styles.content}>
-			{
-				props.users.map(u => <div key={u.id}>
+			{props.users.map((u) => (
+				<div key={u.id}>
 					<span>
 						<div>
-							<img src={u.photoUrl} className={styles.userPhoto} alt='' />
+							<img src={u.photoUrl} className={styles.userPhoto} alt="" />
 						</div>
 						<div>
-							{u.followed
-								? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-								: <button onClick={() => { props.follow(u.id) }}>Follow</button>}
+							{u.followed ? (
+								<button
+									onClick={() => {
+										props.unfollow(u.id);
+									}}
+								>
+									Unfollow
+								</button>
+							) : (
+								<button
+									onClick={() => {
+										props.follow(u.id);
+									}}
+								>
+									Follow
+								</button>
+							)}
 						</div>
 					</span>
 					<span>
@@ -25,10 +39,10 @@ const Users = (props) => {
 							<div>{u.location.city}</div>
 						</span>
 					</span>
-				</div>)
-			}
+				</div>
+			))}
 		</div>
 	);
-}
+};
 
 export default Users;

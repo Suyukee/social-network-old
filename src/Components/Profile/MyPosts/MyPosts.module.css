@@ -4,23 +4,23 @@
 }
 
 .post {
-    background-color: #171717;
-    width: 60rem;
-    display: flex;
-    justify-content: space-between;
-    margin: 15px;
-    padding: 10px 15px;
-		border-radius: 10px;
+	background-color: #171717;
+	width: 60rem;
+	display: flex;
+	justify-content: space-between;
+	margin: 15px;
+	padding: 10px 15px;
+	border-radius: 10px;
 }
 
 .post textarea {
-    width: 100%;
-    border: none;
-    resize: none;
-    font-family: Inter;
-    font-size: 18px;
-    background-color: #171717;
-    color: #fff;
+	width: 100%;
+	border: none;
+	resize: none;
+	font-family: Inter;
+	font-size: 18px;
+	background-color: #171717;
+	color: #fff;
 }
 
 .post textarea:focus {
@@ -28,9 +28,9 @@
 }
 
 .post button {
-    width: 5rem;
-    height: 100%;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
+	width: 5rem;
+	height: 100%;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
 }
