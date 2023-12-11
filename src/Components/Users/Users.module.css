@@ -1,10 +1,57 @@
 .content {
-	width: 100%;
+	width: calc(100vw - 80px);
 	height: 100%;
+	position: absolute;
 	background-color: #121212;
+	color: #fff;
 }
 
-.userPhoto {
+.item {
+	margin: 20px 0;
+	margin-left: 30px;
+	padding: 20px 30px;
+	display: flex;
+	width: 32rem;
+	border-radius: 20px;
+	background-color: #171717;
+}
+
+.item .userPhoto {
 	width: 100px;
 	border-radius: 50%;
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+
+.item .left {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+}
+
+.item .right {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: left;
+}
+
+.item button {
+	padding: 0.8rem;
+	width: 100px;
+	border-radius: 10px;
+	border: none;
+	background-color: #8774e1;
+	color: #fff;
+	font-size: 16px;
+}
+
+.item .unfollow {
+	background-color: #303030;
+	color: #999;
+}
+
+.item .fullname {
+	font-size: 28px;
 }

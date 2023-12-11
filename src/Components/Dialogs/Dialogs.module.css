@@ -2,8 +2,8 @@
 	display: grid;
 	grid-template-columns: 28.125rem auto;
 	grid-template-rows: 100%;
-	position: fixed;
-	width: 100%;
+	position: absolute;
+	width: calc(100vw - 5rem);
 	height: 100%;
 	background-color: #121212;
 }
