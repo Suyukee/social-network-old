@@ -12,6 +12,7 @@ class Users extends React.Component {
 			)
 			.then((response) => {
 				this.props.setUsers(response.data.items);
+				this.props.setTotalUsersCount(response.data.totalCount);
 			});
 	}
 	onPageChanged = (pageNumber) => {
