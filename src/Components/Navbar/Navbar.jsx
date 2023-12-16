@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
-import ProfileIcon from './ProfileIcon';
-import DialogsIcon from './DialogsIcon';
-import UsersIcon from './UsersIcon';
+import ProfileIcon from '../common/Icons/ProfileIcon';
+import DialogsIcon from '../common/Icons/DialogsIcon';
+import UsersIcon from '../common/Icons/UsersIcon';
 
 const Navbar = () => {
 	return (

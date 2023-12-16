@@ -3,9 +3,9 @@
 	flex-direction: column-reverse;
 }
 
-.post {
+.content .post {
 	background-color: #171717;
-	width: 60rem;
+	width: 50rem;
 	display: flex;
 	justify-content: space-between;
 	margin: 15px;
