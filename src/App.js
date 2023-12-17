@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
@@ -13,7 +13,7 @@ function App(props) {
 			<div className="content">
 				<Navbar />
 				<Routes>
-					<Route path="/profile" element={<Profile store={props.store} />} />
+					<Route path="/profile" element={<ProfileContainer store={props.store} />} />
 					<Route path="/dialogs/*" element={<DialogsContainer store={props.store} />} />
 					<Route path="/users" element={<UsersContainer />} />
 					<Route path="/news" element={<News />} />
