@@ -1,15 +1,23 @@
 .content {
 	display: flex;
+	align-items: left;
 	background-color: #171717;
 	margin: 15px;
 	border-radius: 20px;
 }
 
 .content img {
+	margin: 0.9rem;
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	margin: 15px;
+}
+
+.content .right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 2rem;
 }
 
 .content .name {
@@ -20,4 +28,14 @@
 
 .content h3 {
 	font-size: 2rem;
+}
+
+.content .contacts {
+	display: flex;
+}
+
+.contacts a img {
+	width: 3rem;
+	height: 3rem;
+	margin: 0.9rem 0.5rem;
 }

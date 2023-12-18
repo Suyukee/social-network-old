@@ -1,11 +1,21 @@
-.loading {
+.wrapper {
 	width: 100vw;
 	height: 100vh;
+	position: fixed;
 	display: flex;
-	position: absolute;
-	align-items: center;
+	flex-direction: column;
 	justify-content: center;
-	font-size: 25px;
-	color: #fff;
+	align-items: center;
 	background-color: #121212;
+}
+
+.wrapper h3 {
+	color: #fff;
+	font-size: 35px;
+}
+
+.wrapper svg {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
 }

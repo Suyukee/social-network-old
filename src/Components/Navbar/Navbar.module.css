@@ -1,7 +1,30 @@
-.nav {
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	width: 5rem;
 	height: 100%;
 	background-color: #000;
 	position: fixed;
 	left: 0;
+}
+
+.auth {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 5rem;
+	margin-bottom: 1rem;
+}
+
+.auth img {
+	width: 3.4rem;
+	height: 3.4rem;
+	border-radius: 50%;
+}
+
+.auth p {
+	color: #fff;
+	font-size: 14px;
 }
