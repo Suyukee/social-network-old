@@ -1,6 +1,7 @@
 import styles from './Users.module.css';
 import userPhoto from '../../assets/images/user.png';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 const Users = (props) => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -8,6 +9,8 @@ const Users = (props) => {
 	for (let i = 1; i <= pagesCount; i++) {
 		pages.push(i);
 	}
+
+	// const onFollow = (props) => {};
 
 	return (
 		<div className={styles.content}>
@@ -40,7 +43,18 @@ const Users = (props) => {
 								<button
 									className={styles.unfollow}
 									onClick={() => {
-										props.unfollow(u.id);
+										axios
+											.delete('https://social-network.samuraijs.com/api/1.0/follow/' + u.id, {
+												withCredentials: true,
+												headers: {
+													'API-KEY': '45aa9eca-58a5-4f86-a0db-b271e8e90049',
+												},
+											})
+											.then((response) => {
+												if (response.data.resultCode === 0) {
+													props.unfollow(u.id);
+												}
+											});
 									}}
 								>
 									Unfollow
@@ -48,7 +62,22 @@ const Users = (props) => {
 							) : (
 								<button
 									onClick={() => {
-										props.follow(u.id);
+										axios
+											.post(
+												'https://social-network.samuraijs.com/api/1.0/follow/' + u.id,
+												{},
+												{
+													withCredentials: true,
+													headers: {
+														'API-KEY': '45aa9eca-58a5-4f86-a0db-b271e8e90049',
+													},
+												},
+											)
+											.then((response) => {
+												if (response.data.resultCode === 0) {
+													props.follow(u.id);
+												}
+											});
 									}}
 								>
 									Follow

@@ -2,6 +2,7 @@ import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import vk from '../../../assets/images/vk-logo.png';
 import github from '../../../assets/images/github-logo.png';
+import userPhoto from '../../../assets/images/user.png';
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -10,11 +11,11 @@ const ProfileInfo = (props) => {
 
 	return (
 		<div className={styles.content}>
-			<img
-				// src="https://sun59-1.userapi.com/s/v1/if2/SKDQfyY1NFSQrjgFJMrXfF3hjdv5rOAQ_aJTXI7EPN7G6fzGyXu8wmCAsgAy3FE5O6DncfQiR4eUhOvdv74n9z7H.jpg?quality=95&crop=65,56,703,703&as=50x50,100x100,200x200,400x400&ava=1&u=pYyra2gbPNUJtPhJw-YJKUV8V0EZwL5uJHo3ubWIswY&cs=200x200"
-				src={props.profile.photos.large}
-				alt=""
-			/>
+			{props.profile.photos.large ? (
+				<img src={props.profile.photos.large} alt="" />
+			) : (
+				<img src={userPhoto} alt="" />
+			)}
 			<div className={styles.right}>
 				<div className={styles.name}>
 					<h3>{props.profile.fullName}</h3>
