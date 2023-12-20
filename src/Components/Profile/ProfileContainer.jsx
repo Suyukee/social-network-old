@@ -1,9 +1,9 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { setUserProfile } from '../../redux/profileReducer';
+import { getProfile } from '../../redux/profileReducer';
 import { useParams } from 'react-router-dom';
-import { usersAPI } from '../../api/api';
+import Preloader from '../common/Preloader/Preloader';
 
 function withRouter(Children) {
 	return (props) => {
@@ -19,19 +19,23 @@ class ProfileContainer extends React.Component {
 		if (!userId) {
 			userId = 2;
 		}
-		usersAPI.getProfile(userId).then((data) => {
-			this.props.setUserProfile(data);
-		});
+		this.props.getProfile(userId);
 	}
 	render() {
-		return <Profile {...this.props} profile={this.props.profile} />;
+		return (
+			<>
+				{this.props.isFetching && <Preloader />}
+				<Profile {...this.props} profile={this.props.profile} />
+			</>
+		);
 	}
 }
 
 let mapStateToProps = (state) => ({
 	profile: state.profilePage.profile,
+	isFetching: state.profilePage.isFetching,
 });
 
 let withUrlDataContainerComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, { setUserProfile })(withUrlDataContainerComponent);
+export default connect(mapStateToProps, { getProfile })(withUrlDataContainerComponent);
