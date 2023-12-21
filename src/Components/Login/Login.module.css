@@ -1,0 +1,11 @@
+.wrapper {
+	position: absolute;
+	width: calc(100vw - 80px);
+	height: 100%;
+	background-color: #121212;
+	color: #fff;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

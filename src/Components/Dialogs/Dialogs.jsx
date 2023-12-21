@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -20,8 +21,10 @@ const Dialogs = (props) => {
 		props.updateNewMessageBody(body);
 	};
 
+	if (!props.isAuth) return <Navigate to={'/login'} />;
+
 	return (
-		<div className={s.content}>
+		<div className={s.wrapper}>
 			<div className={s.dialogs}>{dialogsElements}</div>
 			<div className={s.chat}>
 				<div className={s.messages}>{messagesElements}</div>
