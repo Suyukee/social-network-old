@@ -9,7 +9,7 @@ const instance = axios.create({
 export const usersAPI = {
 	getUsers(currentPage, pageSize) {
 		return instance
-			.get(`users?page=${currentPage}&count=${pageSize}`, { withCredentials: true })
+			.get(`users?page=${currentPage}&count=${pageSize}`)
 			.then((response) => response.data);
 	},
 
@@ -28,12 +28,10 @@ export const usersAPI = {
 	getProfile(userId) {
 		return instance.get(`profile/${userId}`).then((response) => response.data);
 	},
+};
 
-	getAuth() {
-		return instance
-			.get('auth/me', {
-				withCredentials: true,
-			})
-			.then((response) => response.data);
+export const authAPI = {
+	me() {
+		return instance.get('auth/me').then((response) => response.data);
 	},
 };

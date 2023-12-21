@@ -45,17 +45,16 @@ const profileReducer = (state = initialState, action) => {
 	}
 };
 
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const onPostChangeActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+export const addPost = () => ({ type: ADD_POST });
+export const updateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
-export const getProfile = (userId) => {
+export const getUserProfile = (userId) => {
 	return (dispatch) => {
 		dispatch(toggleIsFetching(true));
 		usersAPI.getProfile(userId).then((data) => {
 			dispatch(setUserProfile(data));
-			debugger;
 			dispatch(toggleIsFetching(false));
 		});
 	};
