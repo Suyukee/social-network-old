@@ -1,0 +1,15 @@
+.wrapper span {
+	margin: 0 0.65rem;
+}
+
+.wrapper input {
+	margin: -0.5rem 0;
+	padding: 0.2rem 0.5rem;
+	background-color: #171717;
+	color: #fff;
+	font-family: Inter;
+	font-size: 16px;
+	border: 0.15rem solid #8774e1;
+	border-radius: 10px;
+	outline: none;
+}

@@ -3,6 +3,7 @@ import Preloader from '../../common/Preloader/Preloader';
 import vk from '../../../assets/images/vk-logo.png';
 import github from '../../../assets/images/github-logo.png';
 import userPhoto from '../../../assets/images/user.png';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -19,7 +20,7 @@ const ProfileInfo = (props) => {
 			<div className={styles.right}>
 				<div className={styles.name}>
 					<h3>{props.profile.fullName}</h3>
-					<p>{props.profile.aboutMe}</p>
+					<ProfileStatus aboutMe={'Yoooo'} />
 				</div>
 				<div className={styles.contacts}>
 					{props.profile.contacts.vk && (

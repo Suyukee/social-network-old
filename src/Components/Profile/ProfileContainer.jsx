@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { getUserProfile } from '../../redux/profileReducer';
 import { useParams } from 'react-router-dom';
 import Preloader from '../common/Preloader/Preloader';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+// import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 function withRouter(Children) {
 	return (props) => {
@@ -32,13 +33,13 @@ class ProfileContainer extends React.Component {
 	}
 }
 
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
-
 let mapStateToProps = (state) => ({
 	profile: state.profilePage.profile,
 	isFetching: state.profilePage.isFetching,
 });
 
-let withUrlDataContainerComponent = withRouter(AuthRedirectComponent);
-
-export default connect(mapStateToProps, { getUserProfile })(withUrlDataContainerComponent);
+export default compose(
+	connect(mapStateToProps, { getUserProfile }),
+	withRouter,
+	// withAuthRedirect,
+)(ProfileContainer);
