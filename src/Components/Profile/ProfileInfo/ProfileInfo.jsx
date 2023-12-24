@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
 			<div className={styles.right}>
 				<div className={styles.name}>
 					<h3>{props.profile.fullName}</h3>
-					<ProfileStatus aboutMe={'Yoooo'} />
+					<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
 				</div>
 				<div className={styles.contacts}>
 					{props.profile.contacts.vk && (

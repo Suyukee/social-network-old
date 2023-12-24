@@ -5,7 +5,7 @@
 
 .content .post {
 	background-color: #171717;
-	width: 50rem;
+	max-width: 50rem;
 	display: flex;
 	justify-content: space-between;
 	margin: 15px;
@@ -28,13 +28,14 @@
 }
 
 .post button {
-	width: 6rem;
-	height: 100%;
+	width: 3.375rem;
+	height: 3.375rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: #8774e1;
-	font-family: Inter;
-	font-size: 16px;
 	color: #fff;
-	border-radius: 10px;
+	border-radius: 50%;
 	border: none;
 	cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
+import SendIcon from '../../common/Icons/SendIcon';
 
 const MyPosts = (props) => {
 	let postsElements = props.posts.map((p) => (
@@ -29,7 +30,9 @@ const MyPosts = (props) => {
 					placeholder="Start typing..."
 				/>
 				<div className={s.button}>
-					<button onClick={onAddPost}>Add post</button>
+					<button onClick={onAddPost}>
+						<SendIcon />
+					</button>
 				</div>
 			</div>
 		</div>
