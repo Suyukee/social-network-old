@@ -4,6 +4,7 @@
 	background-color: #171717;
 	margin: 15px;
 	border-radius: 20px;
+	min-width: 28rem;
 }
 
 .content img {

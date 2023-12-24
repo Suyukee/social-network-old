@@ -6,6 +6,7 @@
 .content .post {
 	background-color: #171717;
 	max-width: 50rem;
+	min-width: 28rem;
 	display: flex;
 	justify-content: space-between;
 	margin: 15px;
@@ -30,6 +31,7 @@
 .post button {
 	width: 3.375rem;
 	height: 3.375rem;
+	padding-left: 0.6rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
