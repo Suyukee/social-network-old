@@ -1,17 +1,14 @@
 import styles from './Login.module.css';
 import { Formik, Form, Field } from 'formik';
 
-const usersSearchFormValidate = (values) => {
+const usersLoginFormValidate = (values) => {
 	const errors = {};
 	return errors;
 };
 
 const Login = () => {
-	const submit = (values, { setSubmitting }) => {
-		setTimeout(() => {
-			alert(JSON.stringify(values, null, 2));
-			setSubmitting(false);
-		}, 400);
+	const submit = (values) => {
+		alert(JSON.stringify(values));
 	};
 
 	return (
@@ -19,21 +16,19 @@ const Login = () => {
 			<div className={styles.form}>
 				<Formik
 					initialValues={{ login: '', password: '', rememberMe: false }}
-					validate={usersSearchFormValidate}
+					validate={usersLoginFormValidate}
 					onSubmit={submit}
 				>
-					{({ isSubmitting }) => (
-						<Form>
-							<legend>LOGIN</legend>
-							<Field type="text" name="login" placeholder="login" />
-							<Field type="text" name="password" placeholder="password" />
-							<label className={styles.checkbox}>
-								<Field type="checkbox" name="rememberMe" />
-								remember me
-							</label>
-							<button type="submit">Login</button>
-						</Form>
-					)}
+					<Form>
+						<legend>LOGIN</legend>
+						<Field type="text" name="login" placeholder="login" />
+						<Field type="text" name="password" placeholder="password" />
+						<label className={styles.checkbox}>
+							<Field type="checkbox" name="rememberMe" />
+							remember me
+						</label>
+						<button type="submit">Login</button>
+					</Form>
 				</Formik>
 			</div>
 		</div>

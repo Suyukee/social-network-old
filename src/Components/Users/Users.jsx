@@ -10,14 +10,6 @@ const Users = (props) => {
 		pages.push(i);
 	}
 
-	// const onFollow = (userId) => {
-	// 	followUser(userId).then((data) => {
-	// 		if (data.resultCode === 0) {
-	// 			props.follow(userId);
-	// 		}
-	// 	});
-	// };
-
 	return (
 		<div className={styles.content}>
 			<div className={styles.pagesList}>
