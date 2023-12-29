@@ -5,7 +5,6 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 	let state = props.dialogsPage;
-
 	let dialogsElements = state.dialogs.map((d) => (
 		<DialogItem id={d.id} name={d.name} src={d.ava} />
 	));
@@ -27,11 +26,9 @@ const AddMessageForm = (props) => {
 		const errors = {};
 		return errors;
 	};
-
 	const addNewMessage = (values) => {
 		props.sendMessage(values.newMessageBody);
 	};
-
 	return (
 		<Formik
 			initialValues={{ newMessageBody: '' }}

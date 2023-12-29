@@ -3,15 +3,19 @@
 	flex-direction: column-reverse;
 }
 
-.content .post {
+.post {
 	background-color: #171717;
 	max-width: 50rem;
 	min-width: 28rem;
-	display: flex;
-	justify-content: space-between;
 	margin: 15px;
 	padding: 10px 15px;
 	border-radius: 10px;
+	position: relative;
+}
+
+form {
+	display: flex;
+	justify-content: space-between;
 }
 
 .post textarea {
@@ -40,4 +44,12 @@
 	border-radius: 50%;
 	border: none;
 	cursor: pointer;
+}
+
+.red {
+	position: absolute;
+	left: 4rem;
+	bottom: -0.5rem;
+	color: red;
+	font-size: 18px;
 }
