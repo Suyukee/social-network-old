@@ -1,6 +1,7 @@
 .item {
 	margin: 15px;
 	padding: 25px;
+	white-space: pre-wrap;
 	background-color: #171717;
 	border-radius: 10px;
 	max-width: 50rem;

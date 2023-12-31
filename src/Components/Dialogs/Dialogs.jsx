@@ -1,7 +1,9 @@
-import { Form, Field, Formik } from 'formik';
+import { Form, Formik, useField } from 'formik';
 import DialogItem from './DialogItem/DialogItem';
-import s from './Dialogs.module.css';
+import styles from './Dialogs.module.css';
 import Message from './Message/Message';
+import SendIcon from '../common/Icons/SendIcon';
+import { textFormValidate } from '../../utils/validators/validators';
 
 const Dialogs = (props) => {
 	let state = props.dialogsPage;
@@ -11,10 +13,10 @@ const Dialogs = (props) => {
 	let messagesElements = state.messages.map((m) => <Message message={m.message} />);
 
 	return (
-		<div className={s.wrapper}>
-			<div className={s.dialogs}>{dialogsElements}</div>
-			<div className={s.chat}>
-				<div className={s.messages}>{messagesElements}</div>
+		<div className={styles.contentWrapper}>
+			<div className={styles.dialogs}>{dialogsElements}</div>
+			<div className={styles.chat}>
+				<div className={styles.messages}>{messagesElements}</div>
 				<AddMessageForm sendMessage={props.sendMessage} />
 			</div>
 		</div>
@@ -22,23 +24,33 @@ const Dialogs = (props) => {
 };
 
 const AddMessageForm = (props) => {
-	const messagesFormValidate = (values) => {
-		const errors = {};
-		return errors;
-	};
 	const addNewMessage = (values) => {
-		props.sendMessage(values.newMessageBody);
+		props.sendMessage(values.text);
+	};
+	const Textarea = ({ ...props }) => {
+		const [field, meta] = useField(props);
+		const hasError = meta.touched && meta.error;
+		return (
+			<div className={styles.wrapper + ' ' + (hasError ? styles.error : '')}>
+				<div className={styles.post}>
+					<textarea {...field} {...props} />
+					<div className={styles.button}>
+						<button type="submit">
+							<SendIcon />
+						</button>
+					</div>
+				</div>
+				{hasError ? <span className={styles.warning}>{meta.error}</span> : null}
+			</div>
+		);
 	};
 	return (
-		<Formik
-			initialValues={{ newMessageBody: '' }}
-			validate={messagesFormValidate}
-			onSubmit={addNewMessage}
-		>
-			<Form className={s.input}>
-				<Field component="textarea" type="text" name="newMessageBody" placeholder="Message..." />
-				<button type="submit">Send</button>
-			</Form>
+		<Formik initialValues={{ text: '' }} validate={textFormValidate} onSubmit={addNewMessage}>
+			{(errors) => (
+				<Form>
+					<Textarea name="text" type="text" label="First Name" placeholder={'Start typing...'} />
+				</Form>
+			)}
 		</Formik>
 	);
 };

@@ -4,18 +4,15 @@
 }
 
 .post {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 1;
 	background-color: #171717;
 	max-width: 50rem;
 	min-width: 28rem;
 	margin: 15px;
 	padding: 10px 15px;
 	border-radius: 10px;
-	position: relative;
-}
-
-form {
-	display: flex;
-	justify-content: space-between;
 }
 
 .post textarea {
@@ -46,10 +43,12 @@ form {
 	cursor: pointer;
 }
 
-.red {
-	position: absolute;
-	left: 4rem;
-	bottom: -0.5rem;
-	color: red;
+.error .post {
+	border: 1px solid #dc143c;
+}
+
+.error .warning {
 	font-size: 18px;
+	color: #dc143c;
+	margin-left: 2rem;
 }

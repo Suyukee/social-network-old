@@ -1,14 +1,15 @@
 import styles from './Login.module.css';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, connect } from 'formik';
+import { login } from '../../redux/authReducer';
 
 const usersLoginFormValidate = (values) => {
 	const errors = {};
 	return errors;
 };
 
-const Login = () => {
-	const submit = (values) => {
-		alert(JSON.stringify(values));
+const Login = (props) => {
+	const submit = (formData) => {
+		props.login(formData.email, formData.password, formData.rememberMe);
 	};
 
 	return (
@@ -21,7 +22,7 @@ const Login = () => {
 				>
 					<Form>
 						<legend>LOGIN</legend>
-						<Field type="text" name="login" placeholder="login" />
+						<Field type="text" name="email" placeholder="login" />
 						<Field type="text" name="password" placeholder="password" />
 						<label className={styles.checkbox}>
 							<Field type="checkbox" name="rememberMe" />
@@ -35,4 +36,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default connect(null, { login })(Login);
