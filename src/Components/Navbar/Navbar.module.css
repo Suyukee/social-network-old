@@ -15,16 +15,23 @@
 	justify-content: center;
 	align-items: center;
 	height: 5rem;
-	margin-bottom: 1rem;
+	margin-bottom: 0.7rem;
 }
 
-.auth img {
-	width: 3.4rem;
-	height: 3.4rem;
-	border-radius: 50%;
-}
-
-.auth p {
+.auth div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	color: #fff;
 	font-size: 14px;
+}
+
+.auth button {
+	margin-top: 0.5rem;
+	padding: 0.5rem 0.7rem;
+	font-family: Inter;
+	border: none;
+	border-radius: 10px;
+	background-color: #8774e1;
 }

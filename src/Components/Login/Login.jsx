@@ -1,39 +1,77 @@
 import styles from './Login.module.css';
-import { Formik, Form, Field, connect } from 'formik';
+import { connect } from 'react-redux';
+import { Formik, Form, Field } from 'formik';
 import { login } from '../../redux/authReducer';
-
-const usersLoginFormValidate = (values) => {
-	const errors = {};
-	return errors;
-};
+import { Navigate } from 'react-router-dom';
 
 const Login = (props) => {
-	const submit = (formData) => {
-		props.login(formData.email, formData.password, formData.rememberMe);
+	const usersLoginFormValidate = (values) => {
+		const errors = {};
+		if (!values.email) {
+			errors.email = 'Введите email';
+		} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+			errors.email = 'Некорректный email';
+		}
+		if (!values.password) {
+			errors.password = 'Введите пароль';
+		}
+		return errors;
 	};
+
+	const submit = (formData, actions) => {
+		props.login(formData.email, formData.password, formData.rememberMe, actions.setStatus);
+		actions.setSubmitting(false);
+		actions.resetForm({ values: { email: '', password: '' } });
+	};
+
+	if (props.isAuth) {
+		return <Navigate to={'/profile'} />;
+	}
 
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.form}>
-				<Formik
-					initialValues={{ login: '', password: '', rememberMe: false }}
-					validate={usersLoginFormValidate}
-					onSubmit={submit}
-				>
+			<Formik
+				initialValues={{ login: '', password: '', rememberMe: false }}
+				validate={usersLoginFormValidate}
+				onSubmit={submit}
+			>
+				{({ errors, touched, status }) => (
 					<Form>
-						<legend>LOGIN</legend>
-						<Field type="text" name="email" placeholder="login" />
-						<Field type="text" name="password" placeholder="password" />
-						<label className={styles.checkbox}>
-							<Field type="checkbox" name="rememberMe" />
-							remember me
-						</label>
-						<button type="submit">Login</button>
+						<h1 className={styles.title}>Вход</h1>
+						{status && <h4>{status}</h4>}
+						<div
+							className={styles.group + ' ' + (errors.email && touched.email ? styles.error : '')}
+						>
+							<Field type="text" name="email" id="email" placeholder=" " required />
+							<label for="email">Email</label>
+							{errors.email && touched.email ? (
+								<p className={styles.errorData}>{errors.email}</p>
+							) : null}
+						</div>
+
+						<div
+							className={
+								styles.group + ' ' + (errors.password && touched.password ? styles.error : '')
+							}
+						>
+							<Field type="password" name="password" id="password" placeholder=" " required />
+							<label for="password">Пароль</label>
+							{errors.password && touched.password ? (
+								<p className={styles.errorData}>{errors.password}</p>
+							) : null}
+						</div>
+						<button type="submit">Войти</button>
 					</Form>
-				</Formik>
-			</div>
+				)}
+			</Formik>
 		</div>
 	);
 };
 
-export default connect(null, { login })(Login);
+const mapStateToProps = (state) => {
+	return {
+		isAuth: state.auth.isAuth,
+	};
+};
+
+export default connect(mapStateToProps, { login })(Login);
