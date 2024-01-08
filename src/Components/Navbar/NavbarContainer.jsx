@@ -1,13 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { connect } from 'react-redux';
-import { getAuthUserData, logout } from '../../redux/authReducer';
+import { logout } from '../../redux/authReducer';
 
 class NavbarContainer extends React.Component {
-	componentDidMount() {
-		this.props.getAuthUserData();
-	}
-
 	render() {
 		return <Navbar {...this.props} />;
 	}
@@ -19,4 +15,4 @@ const mapStateToProps = (state) => ({
 	profile: state.profilePage.profile,
 });
 
-export default connect(mapStateToProps, { getAuthUserData, logout })(NavbarContainer);
+export default connect(mapStateToProps, { logout })(NavbarContainer);

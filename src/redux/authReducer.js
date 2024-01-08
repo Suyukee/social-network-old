@@ -31,15 +31,13 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
-export const getAuthUserData = () => {
-	return (dispatch) => {
-		authAPI.me().then((data) => {
-			if (data.resultCode === 0) {
-				let { id, email, login } = data.data;
-				dispatch(setAuthUserData(id, email, login, true));
-			}
-		});
-	};
+export const getAuthUserData = () => (dispatch) => {
+	return authAPI.me().then((data) => {
+		if (data.resultCode === 0) {
+			let { id, email, login } = data.data;
+			dispatch(setAuthUserData(id, email, login, true));
+		}
+	});
 };
 export const login = (email, password, rememberMe, setStatus) => (dispatch) => {
 	authAPI.login(email, password, rememberMe).then((data) => {
