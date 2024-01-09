@@ -5,13 +5,13 @@ import { textFormValidate } from '../../../utils/validators/validators';
 import SendIcon from '../../common/Icons/SendIcon';
 
 const MyPosts = (props) => {
-	let postsElements = props.posts.map((p) => (
-		<Post message={p.message} likesCount={p.likesCount} />
-	));
+	let postsElements = [...props.posts]
+		.reverse()
+		.map((p) => <Post message={p.message} likesCount={p.likesCount} />);
 	return (
 		<div className={styles.content}>
-			{postsElements}
 			<AddNewPostForm addPost={props.addPost} />
+			{postsElements}
 		</div>
 	);
 };
