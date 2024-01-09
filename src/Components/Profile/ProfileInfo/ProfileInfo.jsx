@@ -3,7 +3,7 @@ import Preloader from '../../common/Preloader/Preloader';
 import vk from '../../../assets/images/vk-logo.png';
 import github from '../../../assets/images/github-logo.png';
 import userPhoto from '../../../assets/images/user.png';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
 			<div className={styles.right}>
 				<div className={styles.name}>
 					<h3>{props.profile.fullName}</h3>
-					<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+					<ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
 				</div>
 				<div className={styles.contacts}>
 					{props.profile.contacts.vk && (
