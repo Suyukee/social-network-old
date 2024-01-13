@@ -52,32 +52,23 @@ export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isF
 export const setUserStatus = (status) => ({ type: SET_STATUS, status });
 export const deletePost = (postId) => ({ type: DELETE_POST, postId });
 
-export const getUserProfile = (userId) => {
-	return (dispatch) => {
-		dispatch(toggleIsFetching(true));
-		profileAPI.getProfile(userId).then((data) => {
-			dispatch(setUserProfile(data));
-			dispatch(toggleIsFetching(false));
-		});
-	};
+export const getUserProfile = (userId) => async (dispatch) => {
+	dispatch(toggleIsFetching(true));
+	const response = await profileAPI.getProfile(userId);
+	dispatch(setUserProfile(response.data));
+	dispatch(toggleIsFetching(false));
 };
 
-export const getUserStatus = (userId) => {
-	return (dispatch) => {
-		profileAPI.getStatus(userId).then((data) => {
-			dispatch(setUserStatus(data));
-		});
-	};
+export const getUserStatus = (userId) => async (dispatch) => {
+	const response = await profileAPI.getStatus(userId);
+	dispatch(setUserStatus(response.data));
 };
 
-export const updateUserStatus = (status) => {
-	return (dispatch) => {
-		profileAPI.updateStatus(status).then((data) => {
-			if (data.resultCode === 0) {
-				dispatch(setUserStatus(status));
-			}
-		});
-	};
+export const updateUserStatus = (status) => async (dispatch) => {
+	const response = await profileAPI.updateStatus(status);
+	if (response.data.resultCode === 0) {
+		dispatch(setUserStatus(status));
+	}
 };
 
 export default profileReducer;

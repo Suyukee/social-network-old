@@ -3,33 +3,33 @@ import Preloader from '../../common/Preloader/Preloader';
 import vk from '../../../assets/images/vk-logo.png';
 import github from '../../../assets/images/github-logo.png';
 import userPhoto from '../../../assets/images/user.png';
-import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import ProfileStatus from './ProfileStatus';
 
-const ProfileInfo = (props) => {
-	if (!props.profile) {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
+	if (!profile) {
 		return <Preloader />;
 	}
 
 	return (
 		<div className={styles.content}>
-			{props.profile.photos.large ? (
-				<img src={props.profile.photos.large} alt="" />
+			{profile.photos.large ? (
+				<img src={profile.photos.large} alt="" />
 			) : (
 				<img src={userPhoto} alt="" />
 			)}
 			<div className={styles.right}>
 				<div className={styles.name}>
-					<h3>{props.profile.fullName}</h3>
-					<ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+					<h3>{profile.fullName}</h3>
+					<ProfileStatus status={status} updateStatus={updateStatus} />
 				</div>
 				<div className={styles.contacts}>
-					{props.profile.contacts.vk && (
-						<a href={`https://${props.profile.contacts.vk}`}>
+					{profile.contacts.vk && (
+						<a href={`https://${profile.contacts.vk}`}>
 							<img src={vk} alt="" />
 						</a>
 					)}
-					{props.profile.contacts.github && (
-						<a href={`https://${props.profile.contacts.github}`}>
+					{profile.contacts.github && (
+						<a href={`https://${profile.contacts.github}`}>
 							<img src={github} alt="" />
 						</a>
 					)}

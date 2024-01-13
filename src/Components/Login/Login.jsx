@@ -3,28 +3,16 @@ import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { login } from '../../redux/authReducer';
 import { Navigate } from 'react-router-dom';
+import { usersLoginFormValidate } from '../../utils/validators/validators';
 
-const Login = (props) => {
-	const usersLoginFormValidate = (values) => {
-		const errors = {};
-		if (!values.email) {
-			errors.email = 'Введите email';
-		} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-			errors.email = 'Некорректный email';
-		}
-		if (!values.password) {
-			errors.password = 'Введите пароль';
-		}
-		return errors;
-	};
-
+const Login = ({ login, isAuth }) => {
 	const submit = (formData, actions) => {
-		props.login(formData.email, formData.password, formData.rememberMe, actions.setStatus);
+		login(formData.email, formData.password, formData.rememberMe, actions.setStatus);
 		actions.setSubmitting(false);
 		actions.resetForm({ values: { email: '', password: '' } });
 	};
 
-	if (props.isAuth) {
+	if (isAuth) {
 		return <Navigate to={'/profile'} />;
 	}
 

@@ -8,29 +8,6 @@
 	z-index: -1;
 }
 
-.pagesList {
-	margin: 1rem 0;
-	margin-left: 3rem;
-	width: 32rem;
-	height: 3rem;
-	border-radius: 20px;
-	background-color: #171717;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-}
-
-.pagesList span {
-	padding: 0.6rem 0.9rem;
-	margin: -0.5rem;
-}
-
-.selectedPage {
-	font-weight: 700;
-	background-color: #8774e1;
-	border-radius: 10px;
-}
-
 .item {
 	margin: 1rem 0;
 	margin-left: 3rem;
