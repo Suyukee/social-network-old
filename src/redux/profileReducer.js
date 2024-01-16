@@ -36,11 +36,6 @@ const profileReducer = (state = initialState, action) => {
 			return { ...state, isFetching: action.isFetching };
 		case SET_STATUS:
 			return { ...state, status: action.status };
-		case DELETE_POST:
-			return {
-				...state,
-				posts: state.posts.filter((p) => p.id !== action.postId),
-			};
 		default:
 			return state;
 	}
