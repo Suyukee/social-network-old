@@ -24,11 +24,14 @@ const ProfileStatusWithHooks = (props) => {
 
 	return (
 		<div className={styles.wrapper}>
-			{!editMode && <span onClick={activateEditMode}>{props.status || 'No status'}</span>}
-
-			{editMode && (
+			{props.isOwner && !editMode && (
+				<span onClick={activateEditMode}>{props.status || 'No status'}</span>
+			)}
+			{props.isOwner && editMode && (
 				<input value={status} onChange={onStatusChange} onBlur={deactivateEditMode} autoFocus />
 			)}
+
+			{!props.isOwner && <span>{props.status || 'No status'}</span>}
 		</div>
 	);
 };

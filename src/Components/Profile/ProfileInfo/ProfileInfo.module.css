@@ -1,39 +1,45 @@
 .content {
+	padding: 0.9rem;
 	display: flex;
 	align-items: left;
+	gap: 1rem;
 	background-color: #171717;
 	margin: 15px;
 	border-radius: 20px;
 	min-width: 28rem;
 }
 
+.content .userPhoto {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.content .userPhoto .editButton {
+	display: none;
+	position: absolute;
+	bottom: -0.3rem;
+}
+
+.content .userPhoto:hover .editButton {
+	display: block;
+}
+
 .content img {
-	margin: 0.9rem;
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
 }
 
-.content .right {
+.content .userInfo {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-left: 2rem;
-}
-
-.content .name {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	align-items: center;
 }
 
 .content h3 {
 	font-size: 2rem;
 	margin-bottom: 0.5rem;
-}
-
-.content .contacts {
-	display: flex;
 }
 
 .contacts a img {
