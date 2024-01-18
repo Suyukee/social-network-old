@@ -9,8 +9,8 @@ const SAVE_PHOTO_SUCCESS = 'SAVE-PHOTO-SUCCESS';
 
 let initialState = {
 	posts: [
-		{ id: 1, message: "It's my project 👍", likesCount: 12 },
-		{ id: 2, message: 'I make his with React 😎', likesCount: 34 },
+		{ id: 1, message: 'И это мой первый проект 👍', likesCount: 12 },
+		{ id: 2, message: 'Я учу React 😎', likesCount: 34 },
 	],
 	profile: null,
 	isFetching: false,

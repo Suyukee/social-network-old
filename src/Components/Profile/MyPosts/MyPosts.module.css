@@ -41,13 +41,3 @@
 	border: none;
 	cursor: pointer;
 }
-
-.error .post {
-	border: 1px solid #dc143c;
-}
-
-.error .warning {
-	font-size: 18px;
-	color: #dc143c;
-	margin-left: 2rem;
-}

@@ -40,7 +40,12 @@ const AddNewPostForm = (props) => {
 		<Formik initialValues={{ text: '' }} validate={textFormValidate} onSubmit={addNewMessage}>
 			{(errors) => (
 				<Form>
-					<Textarea name="text" type="text" label="First Name" placeholder={'Start typing...'} />
+					<Textarea
+						name="text"
+						type="text"
+						label="First Name"
+						placeholder={'Напишите сообщение...'}
+					/>
 				</Form>
 			)}
 		</Formik>

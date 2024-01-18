@@ -26,9 +26,12 @@
 }
 
 .messages {
-	width: 80%;
-	max-width: 50rem;
-	margin: 0 auto;
+	margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	gap: 0.6rem;
 }
 
 .wrapper {
@@ -76,18 +79,4 @@
 	border-radius: 50%;
 	border: none;
 	cursor: pointer;
-}
-
-.error .post {
-	border: 1px solid #dc143c;
-}
-
-.error .warning {
-	position: absolute;
-	top: 0;
-	font-size: 18px;
-	background-color: #121212;
-	border-radius: 10px;
-	padding: 0.3rem;
-	color: #dc143c;
 }

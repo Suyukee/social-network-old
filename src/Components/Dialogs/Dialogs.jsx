@@ -28,10 +28,9 @@ const AddMessageForm = (props) => {
 		props.sendMessage(values.text);
 	};
 	const Textarea = ({ ...props }) => {
-		const [field, meta] = useField(props);
-		const hasError = meta.touched && meta.error;
+		const [field] = useField(props);
 		return (
-			<div className={styles.wrapper + ' ' + (hasError ? styles.error : '')}>
+			<div className={styles.wrapper}>
 				<div className={styles.post}>
 					<textarea {...field} {...props} />
 					<div className={styles.button}>
@@ -40,7 +39,6 @@ const AddMessageForm = (props) => {
 						</button>
 					</div>
 				</div>
-				{hasError ? <span className={styles.warning}>{meta.error}</span> : null}
 			</div>
 		);
 	};
@@ -48,7 +46,12 @@ const AddMessageForm = (props) => {
 		<Formik initialValues={{ text: '' }} validate={textFormValidate} onSubmit={addNewMessage}>
 			{(errors) => (
 				<Form>
-					<Textarea name="text" type="text" label="First Name" placeholder={'Start typing...'} />
+					<Textarea
+						name="text"
+						type="text"
+						label="First Name"
+						placeholder={'Напишите сообщение...'}
+					/>
 				</Form>
 			)}
 		</Formik>

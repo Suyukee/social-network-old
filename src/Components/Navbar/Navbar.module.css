@@ -35,3 +35,7 @@
 	border-radius: 10px;
 	background-color: #8774e1;
 }
+
+.active {
+	background-color: red;
+}
