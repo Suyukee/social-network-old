@@ -1,4 +1,7 @@
 .content {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 	position: absolute;
 	width: calc(100vw - 80px);
 	height: 100%;

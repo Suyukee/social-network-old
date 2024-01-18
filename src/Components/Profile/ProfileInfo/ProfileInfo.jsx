@@ -28,12 +28,12 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 				</div>
 				<div className={styles.contacts}>
 					{profile.contacts.vk && (
-						<a href={`https://${profile.contacts.vk}`}>
+						<a href={`${profile.contacts.vk}`}>
 							<img src={vk} alt="" />
 						</a>
 					)}
 					{profile.contacts.github && (
-						<a href={`https://${profile.contacts.github}`}>
+						<a href={`${profile.contacts.github}`}>
 							<img src={github} alt="" />
 						</a>
 					)}

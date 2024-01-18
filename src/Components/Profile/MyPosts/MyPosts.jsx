@@ -21,10 +21,10 @@ const AddNewPostForm = (props) => {
 		props.addPost(values.text);
 	};
 	const Textarea = ({ ...props }) => {
-		const [field, meta] = useField(props);
-		const hasError = meta.touched && meta.error;
+		const [field] = useField(props);
+
 		return (
-			<div className={styles.wrapper + ' ' + (hasError ? styles.error : '')}>
+			<div className={styles.wrapper}>
 				<div className={styles.post}>
 					<textarea {...field} {...props} />
 					<div className={styles.button}>
@@ -33,7 +33,6 @@ const AddNewPostForm = (props) => {
 						</button>
 					</div>
 				</div>
-				{hasError ? <span className={styles.warning}>{meta.error}</span> : null}
 			</div>
 		);
 	};
