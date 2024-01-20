@@ -1,11 +1,19 @@
-import s from './Post.module.css';
+import { useState } from 'react';
+import LikePostIcon from '../../../common/Icons/LikePostIcon';
+import styles from './Post.module.css';
 
 const Post = (props) => {
+	const [isLike, setIsLike] = useState(false);
 	return (
-		<div className={s.wrapper}>
-			<div className={s.item}>
+		<div className={styles.wrapper}>
+			<div className={styles.item}>
 				<p>{props.message}</p>
-				<span>likes: {props.likesCount}</span>
+				<button onClick={() => setIsLike(!isLike)} className={styles.likeContainer}>
+					<LikePostIcon isLike={isLike} />
+					<span className={isLike ? styles.liked : undefined}>
+						{isLike ? props.likesCount + 1 : props.likesCount}
+					</span>
+				</button>
 			</div>
 		</div>
 	);

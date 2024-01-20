@@ -11,6 +11,21 @@
 	margin-bottom: 15px;
 }
 
-.item span {
+.item .likeContainer {
+	display: flex;
+	gap: 0.2rem;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.item .likeContainer span {
 	color: #ccc;
+	font-family: Inter;
+	font-size: 15px;
+}
+
+.item .likeContainer .liked {
+	color: #8774e1;
 }

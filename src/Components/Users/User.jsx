@@ -5,15 +5,19 @@ import styles from './Users.module.css';
 const User = ({ user, followingInProgress, unfollow, follow }) => {
 	return (
 		<div className={styles.item}>
-			<div className={styles.left}>
-				<NavLink to={`/profile/${user.id}`}>
-					<img
-						src={user.photos.small != null ? user.photos.small : userPhoto}
-						className={styles.userPhoto}
-						alt=""
-					/>
-				</NavLink>
-				<div className={styles.button}>
+			<NavLink to={`/profile/${user.id}`}>
+				<img
+					src={user.photos.small != null ? user.photos.small : userPhoto}
+					className={styles.userPhoto}
+					alt=""
+				/>
+			</NavLink>
+			<div className={styles.right}>
+				<div className={styles.userInfo}>
+					<p className={styles.fullname}>{user.name}</p>
+					<p>{user.status}</p>
+				</div>
+				<div>
 					{user.followed ? (
 						<button
 							className={styles.unfollow}
@@ -34,16 +38,6 @@ const User = ({ user, followingInProgress, unfollow, follow }) => {
 							Follow
 						</button>
 					)}
-				</div>
-			</div>
-			<div className={styles.right}>
-				<div className={styles.user_info}>
-					<p className={styles.fullname}>{user.name}</p>
-					<p>{user.status}</p>
-				</div>
-				<div className={styles.location}>
-					<p>{`user.location.country`}</p>
-					<p>{`user.location.city`}</p>
 				</div>
 			</div>
 		</div>
