@@ -4,8 +4,6 @@
 	flex-direction: column;
 	gap: 1.5rem;
 	position: absolute;
-	top: 0;
-	right: 0;
 	width: calc(100vw - 5rem);
 	background-color: #121212;
 	color: #fff;

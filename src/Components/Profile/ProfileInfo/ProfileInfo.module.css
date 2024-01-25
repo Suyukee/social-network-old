@@ -16,13 +16,15 @@
 }
 
 .content .userPhoto .editButton {
-	display: none;
+	opacity: 0;
 	position: absolute;
 	bottom: -0.5rem;
+	transition: 0.2s;
 }
 
 .content .userPhoto:hover .editButton {
-	display: block;
+	opacity: 100%;
+	transition: 0.3s;
 }
 
 .content .userPhoto img {
@@ -36,6 +38,7 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 0.2rem;
+	width: 100%;
 }
 
 .content .userInfo .name {
@@ -48,13 +51,22 @@
 	font-size: 2rem;
 }
 
-.contacts {
+.moreInfo {
 	display: flex;
-	gap: 0.5rem;
-	margin-left: 0.2rem;
 }
 
-.contacts a img {
-	width: 2.5rem;
-	height: 2.5rem;
+.moreInfo .moreInfoButton {
+	position: absolute;
+	padding: 0.5rem 0.3rem;
+	background-color: transparent;
+	color: #fff;
+	font-family: Inter;
+	opacity: 20%;
+	border: none;
+	transition: 0.2s;
+}
+
+.moreInfo button:hover {
+	opacity: 80%;
+	transition: 0.2s;
 }
