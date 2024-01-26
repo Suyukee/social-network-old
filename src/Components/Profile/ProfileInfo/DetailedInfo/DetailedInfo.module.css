@@ -13,7 +13,7 @@
 	position: absolute;
 	top: 3rem;
 	left: 5rem;
-	width: 30rem;
+	width: 40rem;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -21,9 +21,26 @@
 	border-radius: 20px;
 }
 
-.container button {
+.container .header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	align-items: flex-start;
+}
+
+.container .editInfoButton {
+	background-color: transparent;
+	color: #fff;
+	font-family: Inter;
+	font-size: 14px;
+	opacity: 20%;
+	border: none;
+	transition: 0.2s;
+}
+
+.container .closeButton {
 	position: absolute;
-	top: 1rem;
+	top: 2rem;
 	right: 1rem;
 	width: 2rem;
 	height: 2rem;
@@ -32,9 +49,21 @@
 	border-radius: 8px;
 }
 
-.container .aboutMe {
+.container .aboutMe,
+.container .lookingForAJob {
 	display: flex;
 	gap: 1rem;
+}
+
+.container .aboutMe b,
+.container .lookingForAJob b {
+	flex-shrink: 0;
+}
+
+.container .lookingForAJobDescription {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .contacts {

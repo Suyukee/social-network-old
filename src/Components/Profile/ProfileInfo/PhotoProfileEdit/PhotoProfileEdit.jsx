@@ -1,5 +1,5 @@
 import EditProfileIcon from '../../../common/Icons/EditProfileIcon';
-import styles from './ProfileEdit.module.css';
+import styles from './PhotoProfileEdit.module.css';
 
 const ProfileEdit = (props) => {
 	const onMainPhotoSelected = (e) => {

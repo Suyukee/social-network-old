@@ -6,7 +6,6 @@ import {
 	getUserStatus,
 	updateUserStatus,
 	savePhoto,
-	likePostSuccess,
 } from '../../redux/profileReducer';
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
@@ -44,7 +43,6 @@ class ProfileContainer extends React.Component {
 					status={this.props.status}
 					updateStatus={this.props.updateUserStatus}
 					savePhoto={this.props.savePhoto}
-					likePostSuccess={this.props.likePostSuccess}
 				/>
 			</>
 		);
@@ -65,7 +63,6 @@ export default compose(
 		getUserStatus,
 		updateUserStatus,
 		savePhoto,
-		likePostSuccess,
 	}),
 	withRouter,
 	withAuthRedirect,

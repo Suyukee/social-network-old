@@ -3,23 +3,20 @@ import LikePostIcon from '../../../common/Icons/LikePostIcon';
 import styles from './Post.module.css';
 
 const Post = (props) => {
-	const [isLike, setIsLike] = useState(false);
+	const [liked, setLiked] = useState(false);
+	let likesCount = props.likesCount;
 
-	const handleClick = () => {
-		setIsLike(!isLike);
-		props.likePostSuccess(1);
-		console.log(props.likePostSuccess);
+	const likePost = () => {
+		setLiked(!liked);
 	};
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.item}>
 				<p>{props.message}</p>
-				<button onClick={handleClick} className={styles.likeContainer}>
-					<LikePostIcon isLike={isLike} />
-					<span className={isLike ? styles.liked : undefined}>
-						{isLike ? props.likesCount + 1 : props.likesCount}
-					</span>
+				<button onClick={likePost} className={styles.likeContainer}>
+					<LikePostIcon liked={liked} />
+					<span className={liked ? styles.liked : undefined}>{likesCount}</span>
 				</button>
 			</div>
 		</div>

@@ -2,7 +2,7 @@ import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import userPhoto from '../../../assets/images/user.png';
 import ProfileStatus from './ProfileStatus/ProfileStatus';
-import ProfileEdit from './ProfileEdit/ProfileEdit';
+import PhotoProfileEdit from './PhotoProfileEdit/PhotoProfileEdit';
 import { useState } from 'react';
 import DetailedInfo from './DetailedInfo/DetailedInfo';
 
@@ -18,7 +18,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 				<img src={profile.photos.large || userPhoto} alt="" />
 				{isOwner && (
 					<div className={styles.editButton}>
-						<ProfileEdit isOwner={isOwner} savePhoto={savePhoto} />
+						<PhotoProfileEdit isOwner={isOwner} savePhoto={savePhoto} />
 					</div>
 				)}
 			</div>
@@ -28,10 +28,10 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 					<ProfileStatus isOwner={isOwner} status={status} updateStatus={updateStatus} />
 				</div>
 
-				{profile.aboutMe && (
+				{profile && (
 					<div className={styles.moreInfo}>
 						{opened ? (
-							<DetailedInfo profile={profile} setOpened={setOpened} />
+							<DetailedInfo profile={profile} setOpened={setOpened} isOwner={isOwner} />
 						) : (
 							<button onClick={() => setOpened(true)} className={styles.moreInfoButton}>
 								Подробнее

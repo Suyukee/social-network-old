@@ -1,39 +1,69 @@
 import vk from '../../../../assets/images/vk-logo.png';
 import github from '../../../../assets/images/github-logo.png';
 import styles from './DetailedInfo.module.css';
+import { useState } from 'react';
+import EditProfileInfo from './EditProfileInfo/EditProfileInfo';
 
-const DetailedInfo = ({ profile, setOpened }) => {
-	const deactivateEditMode = () => {
+const DetailedInfo = ({ profile, setOpened, isOwner }) => {
+	const exitDetailedInfo = () => {
 		setOpened(false);
 	};
+
+	const [editedMode, setEditedMode] = useState(false);
+
+	if (editedMode) return <EditProfileInfo />;
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.container}>
-				<h3>Подробная информация</h3>
-				<button onClick={deactivateEditMode}>x</button>
-				<div className={styles.aboutMe}>
-					<span>О себе: </span>
-					{profile.aboutMe}
+				<div className={styles.header}>
+					<h3>Подробная информация</h3>
+					{isOwner && (
+						<button onClick={() => setEditedMode(!editedMode)} className={styles.editInfoButton}>
+							Редактировать профиль
+						</button>
+					)}
+					<button onClick={exitDetailedInfo} className={styles.closeButton}>
+						X
+					</button>
 				</div>
-				<div className={styles.contacts}>
-					{profile.contacts.vk && (
+
+				{profile.aboutMe && (
+					<div className={styles.aboutMe}>
+						<b>О себе: </b>
+						{profile.aboutMe}
+					</div>
+				)}
+
+				{profile.lookingForAJob && (
+					<div className={styles.lookingForAJob}>
+						<b>В поисках работы: </b>
+						{profile.lookingForAJob ? 'yes' : 'no'}
+					</div>
+				)}
+				{profile.lookingForAJobDescription && (
+					<div className={styles.lookingForAJobDescription}>
+						<b>Профессиональные умения: </b>
+						{profile.lookingForAJobDescription}
+					</div>
+				)}
+
+				{(profile.contacts.vk || profile.contacts.github) && (
+					<div className={styles.contacts}>
 						<div className={styles.link}>
-							<span>Ссылка на Вконтакте:</span>
+							<b>Ссылка на Вконтакте:</b>
 							<a href={`${profile.contacts.vk}`}>
 								<img src={vk} alt="" />
 							</a>
 						</div>
-					)}
-					{profile.contacts.github && (
 						<div className={styles.link}>
-							<span>Ссылка на github:</span>
+							<b>Ссылка на github:</b>
 							<a href={`${profile.contacts.github}`}>
 								<img src={github} alt="" />
 							</a>
 						</div>
-					)}
-				</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);
