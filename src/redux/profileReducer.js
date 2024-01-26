@@ -4,13 +4,13 @@ const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 const SET_STATUS = 'SET-STATUS';
-const DELETE_POST = 'DELETE-POST';
 const SAVE_PHOTO_SUCCESS = 'SAVE-PHOTO-SUCCESS';
+const LIKE_POST_SUCCESS = 'LIKE-POST-SUCCESS';
 
 let initialState = {
 	posts: [
-		{ id: 1, message: 'И это мой первый проект 👍', likesCount: 12 },
-		{ id: 2, message: 'Я учу React 😎', likesCount: 34 },
+		{ id: 1, message: 'И это мой первый проект 👍', likesCount: 12, liked: false },
+		{ id: 2, message: 'Я учу React 😎', likesCount: 34, liked: false },
 	],
 	profile: null,
 	isFetching: false,
@@ -24,6 +24,7 @@ const profileReducer = (state = initialState, action) => {
 				id: 3,
 				message: action.newPostText,
 				likesCount: 0,
+				liked: false,
 			};
 			return {
 				...state,
@@ -39,6 +40,11 @@ const profileReducer = (state = initialState, action) => {
 			return { ...state, status: action.status };
 		case SAVE_PHOTO_SUCCESS:
 			return { ...state, profile: { ...state.profile, photos: action.photos } };
+		case LIKE_POST_SUCCESS:
+			return {
+				...state,
+				posts: [(state.posts[action.postId] = !state.posts[action.postId].liked), ...state.posts],
+			};
 		default:
 			return state;
 	}
@@ -48,8 +54,8 @@ export const addPost = (newPostText) => ({ type: ADD_POST, newPostText });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 export const setUserStatus = (status) => ({ type: SET_STATUS, status });
-export const deletePost = (postId) => ({ type: DELETE_POST, postId });
 export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos });
+export const likePostSuccess = (postId) => ({ type: LIKE_POST_SUCCESS, postId });
 
 export const getUserProfile = (userId) => async (dispatch) => {
 	dispatch(toggleIsFetching(true));
