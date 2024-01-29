@@ -11,7 +11,7 @@ const ProfileEdit = (props) => {
 	return (
 		<div className={styles.content}>
 			<div className={styles.fileInput}>
-				<label for="file-input">
+				<label htmlFor="file-input">
 					<EditProfileIcon />
 					<input onChange={onMainPhotoSelected} type={'file'} id="file-input" />
 				</label>

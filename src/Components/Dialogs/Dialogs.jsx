@@ -8,9 +8,9 @@ import { textFormValidate } from '../../utils/validators/validators';
 const Dialogs = (props) => {
 	let state = props.dialogsPage;
 	let dialogsElements = state.dialogs.map((d) => (
-		<DialogItem id={d.id} name={d.name} src={d.ava} />
+		<DialogItem id={d.id} name={d.name} src={d.ava} key={d.id} />
 	));
-	let messagesElements = state.messages.map((m) => <Message message={m.message} />);
+	let messagesElements = state.messages.map((m) => <Message message={m.message} key={m.id} />);
 
 	return (
 		<div className={styles.contentWrapper}>

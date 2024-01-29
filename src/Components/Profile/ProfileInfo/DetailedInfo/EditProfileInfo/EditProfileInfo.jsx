@@ -37,7 +37,7 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 							{errors.fullName && touched.fullName ? (
 								<p className={styles.errorData}>{errors.fullName}</p>
 							) : null}
-							<label for="fullName">Имя:</label>
+							<label htmlFor="fullName">Имя:</label>
 							<Field
 								type="text"
 								name="fullName"
@@ -51,7 +51,7 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 							{errors.aboutMe && touched.aboutMe ? (
 								<p className={styles.errorData}>{errors.aboutMe}</p>
 							) : null}
-							<label for="aboutMe">О себе:</label>
+							<label htmlFor="aboutMe">О себе:</label>
 							<Field
 								type="text"
 								name="aboutMe"
@@ -62,14 +62,14 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 						</div>
 
 						<div className={styles.lookingForAJob}>
-							<label for="lookingForAJob">В поисках работы:</label>
+							<label htmlFor="lookingForAJob">В поисках работы:</label>
 							<Field type="checkbox" name="lookingForAJob" id="lookingForAJob" />
 						</div>
 						<div className={styles.lookingForAJobDescription}>
 							{errors.lookingForAJobDescription && touched.lookingForAJobDescription ? (
 								<p className={styles.errorData}>{errors.lookingForAJobDescription}</p>
 							) : null}
-							<label for="lookingForAJobDescription">Профессиональные умения:</label>
+							<label htmlFor="lookingForAJobDescription">Профессиональные умения:</label>
 							<Field
 								type="text"
 								name="lookingForAJobDescription"
@@ -85,12 +85,12 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 
 						<div className={styles.contacts}>
 							<div className={styles.link}>
-								<label for="vk">Ссылка на Вконтакте:</label>
-								<Field type="text" name="vk" id="vk" />
+								<label htmlFor="vk">Ссылка на Вконтакте:</label>
+								<Field type="text" name="contacts.vk" id="vk" />
 							</div>
 							<div className={styles.link}>
-								<label for="github">Ссылка на github:</label>
-								<Field type="text" name="github" id="github" />
+								<label htmlFor="github">Ссылка на github:</label>
+								<Field type="text" name="contacts.github" id="github" />
 							</div>
 						</div>
 						<div className={styles.saveButtonContainer}>

@@ -64,18 +64,22 @@ const DetailedInfo = ({ profile, setOpened, isOwner, saveProfile }) => {
 
 				{(profile.contacts.vk || profile.contacts.github) && (
 					<div className={styles.contacts}>
-						<div className={styles.link}>
-							<b>Ссылка на Вконтакте:</b>
-							<a href={`${profile.contacts.vk}`}>
-								<img src={vk} alt="" />
-							</a>
-						</div>
-						<div className={styles.link}>
-							<b>Ссылка на github:</b>
-							<a href={`${profile.contacts.github}`}>
-								<img src={github} alt="" />
-							</a>
-						</div>
+						{profile.contacts.github && (
+							<div className={styles.link}>
+								<b>Профиль на github:</b>
+								<a href={`${profile.contacts.github}`}>
+									<img src={github} alt="" />
+								</a>
+							</div>
+						)}
+						{profile.contacts.vk && (
+							<div className={styles.link}>
+								<b>Профиль на Вконтакте:</b>
+								<a href={`${profile.contacts.vk}`}>
+									<img src={vk} alt="" />
+								</a>
+							</div>
+						)}
 					</div>
 				)}
 			</div>

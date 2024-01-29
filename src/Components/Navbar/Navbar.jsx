@@ -10,6 +10,7 @@ const Navbar = (props) => {
 	const [profileIsActive, setProfileIsActive] = useState(false);
 	const [dialogsIsActive, setDialogsIsActive] = useState(false);
 	const [usersIsActive, setUsersIsActive] = useState(false);
+
 	return (
 		<div className={styles.wrapper}>
 			<nav className={styles.nav}>
@@ -50,7 +51,7 @@ const Navbar = (props) => {
 						{props.login} <button onClick={props.logout}>logout</button>
 					</div>
 				) : (
-					<NavLink to="login">
+					<NavLink to="/login">
 						<SignIn />
 					</NavLink>
 				)}

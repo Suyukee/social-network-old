@@ -7,7 +7,7 @@ import SendIcon from '../../common/Icons/SendIcon';
 const MyPosts = (props) => {
 	let postsElements = [...props.posts]
 		.reverse()
-		.map((p) => <Post message={p.message} likesCount={p.likesCount} />);
+		.map((p) => <Post message={p.message} likesCount={p.likesCount} key={p.id} />);
 	return (
 		<div className={styles.content}>
 			<AddNewPostForm addPost={props.addPost} />

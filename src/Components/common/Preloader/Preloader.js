@@ -12,8 +12,8 @@ const Preloader = (props) => {
 				x="0px"
 				y="0px"
 				viewBox="0 0 54 100"
-				enable-background="new 0 0 0 0"
-				xmlXspace="preserve"
+				enableBackground="new 0 0 0 0"
+				xmlxspace="preserve"
 			>
 				<circle fill="#8774E1" stroke="none" cx="6" cy="40" r="6">
 					<animateTransform

@@ -31,7 +31,7 @@ const Login = ({ login, isAuth }) => {
 							className={styles.group + ' ' + (errors.email && touched.email ? styles.error : '')}
 						>
 							<Field type="text" name="email" id="email" placeholder=" " required />
-							<label for="email">Email</label>
+							<label htmlFor="email">Email</label>
 							{errors.email && touched.email ? (
 								<p className={styles.errorData}>{errors.email}</p>
 							) : null}
@@ -43,7 +43,7 @@ const Login = ({ login, isAuth }) => {
 							}
 						>
 							<Field type="password" name="password" id="password" placeholder=" " required />
-							<label for="password">Пароль</label>
+							<label htmlFor="password">Пароль</label>
 							{errors.password && touched.password ? (
 								<p className={styles.errorData}>{errors.password}</p>
 							) : null}
