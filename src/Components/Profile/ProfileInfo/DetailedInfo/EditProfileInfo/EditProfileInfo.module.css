@@ -20,3 +20,99 @@
 	background-color: #171717;
 	border-radius: 20px;
 }
+
+.container .closeButton {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	border: none;
+	transition: 0.3s;
+	background-color: transparent;
+}
+
+.wrapper .container legend {
+	display: flex;
+	justify-content: center;
+}
+
+.wrapper .container .fullName,
+.wrapper .container .aboutMe,
+.wrapper .container .lookingForAJob,
+.wrapper .container .lookingForAJobDescription,
+.wrapper .container .link {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	position: relative;
+}
+
+.wrapper .container .contacts {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.wrapper .container label {
+	width: 15rem;
+	display: flex;
+	justify-content: right;
+}
+
+.wrapper .container input,
+.wrapper .container .saveButton {
+	font-family: Inter;
+	font-size: 16px;
+}
+
+.wrapper .container input {
+	padding: 5px 10px;
+	width: 20rem;
+	color: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 5px;
+	background-color: transparent;
+	outline: none;
+	transition: 0.3s;
+}
+
+.wrapper .container input[type='checkbox'] {
+	width: auto;
+	background-color: #8774e1;
+}
+
+.wrapper .container input:focus {
+	border: 1px solid #8774e1;
+}
+
+.wrapper .container .saveButtonContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.wrapper .container .saveButton {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	background-color: #8774e1;
+	outline: none;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.wrapper .container .saveButton:focus,
+.wrapper .container .saveButton:hover {
+	background-color: rgba(135, 116, 225, 0.7);
+}
+
+.wrapper .container .error {
+	border: 1px solid #ef3124;
+}
+
+.wrapper .container .errorData {
+	position: absolute;
+	top: -1.2rem;
+	left: 16rem;
+	color: #ef3124;
+	font-size: 14px;
+}

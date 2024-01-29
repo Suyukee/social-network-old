@@ -7,13 +7,13 @@ a {
 	/* width: 26.25rem;
 	height: 5rem; */
 	border-radius: 1.25rem;
-	/* background: #8774E1; */
+	/* background: #8774e1; */
 	margin: 0.94rem;
 	display: flex;
 }
 
 .item:hover {
-	background-color: red;
+	background: #8774e1;
 }
 
 .content {

@@ -1,9 +1,9 @@
 export const textFormValidate = (values) => {
 	const errors = {};
 	if (!values.text) {
-		errors.text = 'Required';
+		errors.text = 'Поле не может быть пустым';
 	} else if (values.text.length > 70) {
-		errors.text = 'Max length 70 symbols';
+		errors.text = 'Максимальное количество символов 70';
 	}
 	return errors;
 };
@@ -17,6 +17,26 @@ export const usersLoginFormValidate = (values) => {
 	}
 	if (!values.password) {
 		errors.password = 'Введите пароль';
+	}
+	return errors;
+};
+
+export const ProfileEditFormValidate = (values) => {
+	const errors = {};
+	if (!values.fullName) {
+		errors.fullName = 'Поле не может быть пустым';
+	} else if (values.fullName.length > 20) {
+		errors.text = 'Максимальное количество символов 20';
+	}
+	if (!values.aboutMe) {
+		errors.aboutMe = 'Поле не может быть пустым';
+	} else if (values.aboutMe.length > 50) {
+		errors.text = 'Максимальное количество символов 50';
+	}
+	if (!values.lookingForAJobDescription) {
+		errors.lookingForAJobDescription = 'Поле не может быть пустым';
+	} else if (values.lookingForAJobDescription.length > 50) {
+		errors.text = 'Максимальное количество символов 50';
 	}
 	return errors;
 };

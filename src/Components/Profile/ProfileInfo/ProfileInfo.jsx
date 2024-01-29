@@ -6,7 +6,7 @@ import PhotoProfileEdit from './PhotoProfileEdit/PhotoProfileEdit';
 import { useState } from 'react';
 import DetailedInfo from './DetailedInfo/DetailedInfo';
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
 	const [opened, setOpened] = useState(false);
 
 	if (!profile) {
@@ -31,7 +31,12 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 				{profile && (
 					<div className={styles.moreInfo}>
 						{opened ? (
-							<DetailedInfo profile={profile} setOpened={setOpened} isOwner={isOwner} />
+							<DetailedInfo
+								profile={profile}
+								setOpened={setOpened}
+								isOwner={isOwner}
+								saveProfile={saveProfile}
+							/>
 						) : (
 							<button onClick={() => setOpened(true)} className={styles.moreInfoButton}>
 								Подробнее

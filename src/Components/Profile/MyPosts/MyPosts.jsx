@@ -22,7 +22,6 @@ const AddNewPostForm = (props) => {
 	};
 	const Textarea = ({ ...props }) => {
 		const [field] = useField(props);
-
 		return (
 			<div className={styles.wrapper}>
 				<div className={styles.post}>
@@ -40,12 +39,7 @@ const AddNewPostForm = (props) => {
 		<Formik initialValues={{ text: '' }} validate={textFormValidate} onSubmit={addNewMessage}>
 			{(errors) => (
 				<Form>
-					<Textarea
-						name="text"
-						type="text"
-						label="First Name"
-						placeholder={'Напишите сообщение...'}
-					/>
+					<Textarea name="text" type="text" placeholder={'Начните печатать...'} />
 				</Form>
 			)}
 		</Formik>

@@ -46,12 +46,7 @@ const AddMessageForm = (props) => {
 		<Formik initialValues={{ text: '' }} validate={textFormValidate} onSubmit={addNewMessage}>
 			{(errors) => (
 				<Form>
-					<Textarea
-						name="text"
-						type="text"
-						label="First Name"
-						placeholder={'Напишите сообщение...'}
-					/>
+					<Textarea name="text" type="text" placeholder={'Напишите сообщение...'} />
 				</Form>
 			)}
 		</Formik>
