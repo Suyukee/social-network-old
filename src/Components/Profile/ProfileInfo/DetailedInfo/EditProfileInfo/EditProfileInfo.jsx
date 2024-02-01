@@ -2,11 +2,15 @@ import { Field, Form, Formik } from 'formik';
 import styles from './EditProfileInfo.module.css';
 import { ProfileEditFormValidate } from '../../../../../utils/validators/validators';
 import CloseIcon from '../../../../common/Icons/CloseIcon';
+import { useState } from 'react';
 
 const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
-	const saveChange = (formData) => {
-		saveProfile(formData);
-		exitDetailedInfo();
+	const [saved, setSaved] = useState(false);
+
+	const saveChange = (formData, actions) => {
+		saveProfile(formData, actions.setStatus);
+		actions.setSubmitting(false);
+		setSaved(true);
 	};
 
 	return (
@@ -22,12 +26,13 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 				validate={ProfileEditFormValidate}
 				onSubmit={saveChange}
 			>
-				{({ errors, touched }) => (
+				{({ errors, touched, status }) => (
 					<Form className={styles.container}>
 						<div className={styles.header}>
 							<legend>
 								<h3>Профиль</h3>
 							</legend>
+							{status && <h4>{status}</h4>}
 							<button onClick={exitDetailedInfo} className={styles.closeButton}>
 								<CloseIcon />
 							</button>
@@ -97,6 +102,7 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 							<button type="submit" className={styles.saveButton}>
 								Сохранить
 							</button>
+							{saved && !status && <span>Сохранено</span>}
 						</div>
 					</Form>
 				)}

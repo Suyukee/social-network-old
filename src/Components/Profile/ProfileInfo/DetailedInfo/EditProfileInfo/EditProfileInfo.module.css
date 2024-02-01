@@ -21,6 +21,17 @@
 	border-radius: 20px;
 }
 
+.container .header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.container .header h4 {
+	color: #ef3124;
+}
+
 .container .closeButton {
 	position: absolute;
 	top: 1rem;
@@ -86,7 +97,11 @@
 
 .wrapper .container .saveButtonContainer {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	position: relative;
 }
 
 .wrapper .container .saveButton {
@@ -103,6 +118,12 @@
 .wrapper .container .saveButton:focus,
 .wrapper .container .saveButton:hover {
 	background-color: rgba(135, 116, 225, 0.7);
+}
+
+.wrapper .container .saveButtonContainer span {
+	color: rgb(136, 241, 136);
+	position: absolute;
+	right: 9rem;
 }
 
 .wrapper .container .error {
