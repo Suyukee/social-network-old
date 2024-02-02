@@ -30,7 +30,7 @@ const User = ({ user, followingInProgress, unfollow, follow }) => {
 								unfollow(user.id);
 							}}
 						>
-							Unfollow
+							Отписаться
 						</button>
 					) : (
 						<button
@@ -39,7 +39,7 @@ const User = ({ user, followingInProgress, unfollow, follow }) => {
 								follow(user.id);
 							}}
 						>
-							Follow
+							Подписаться
 						</button>
 					)}
 				</div>
