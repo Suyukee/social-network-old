@@ -120,12 +120,6 @@
 	background-color: rgba(135, 116, 225, 0.7);
 }
 
-.wrapper .container .saveButtonContainer span {
-	color: rgb(136, 241, 136);
-	position: absolute;
-	right: 9rem;
-}
-
 .wrapper .container .error {
 	border: 1px solid #ef3124;
 }

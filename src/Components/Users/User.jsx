@@ -15,7 +15,11 @@ const User = ({ user, followingInProgress, unfollow, follow }) => {
 			<div className={styles.right}>
 				<div className={styles.userInfo}>
 					<p className={styles.fullname}>{user.name}</p>
-					<p>{user.status}</p>
+					<p>
+						{user.status && user.status.length > 35
+							? user.status.slice(0, 35) + '...'
+							: user.status}
+					</p>
 				</div>
 				<div>
 					{user.followed ? (

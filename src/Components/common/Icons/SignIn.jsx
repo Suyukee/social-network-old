@@ -1,7 +1,7 @@
-const SignIn = () => {
+const SignIn = ({ loginIsActive }) => {
 	return (
 		<svg
-			fill="#666"
+			fill={loginIsActive ? '#8774e1' : '#666'}
 			height="40px"
 			width="40px"
 			version="1.1"

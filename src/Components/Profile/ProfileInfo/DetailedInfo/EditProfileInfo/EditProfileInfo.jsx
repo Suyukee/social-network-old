@@ -1,16 +1,15 @@
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import styles from './EditProfileInfo.module.css';
 import { ProfileEditFormValidate } from '../../../../../utils/validators/validators';
 import CloseIcon from '../../../../common/Icons/CloseIcon';
-import { useState } from 'react';
 
 const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
-	const [saved, setSaved] = useState(false);
-
-	const saveChange = (formData, actions) => {
-		saveProfile(formData, actions.setStatus);
+	const saveChange = async (formData, actions) => {
+		const result = await saveProfile(formData, actions.setStatus);
+		if (result === undefined) {
+			exitDetailedInfo(false);
+		}
 		actions.setSubmitting(false);
-		setSaved(true);
 	};
 
 	return (
@@ -32,16 +31,16 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 							<legend>
 								<h3>Профиль</h3>
 							</legend>
-							{status && <h4>{status}</h4>}
+							{status && status.map((error, index) => <h4 key={index}>{error}</h4>)}
 							<button onClick={exitDetailedInfo} className={styles.closeButton}>
 								<CloseIcon />
 							</button>
 						</div>
 
 						<div className={styles.fullName}>
-							{errors.fullName && touched.fullName ? (
-								<p className={styles.errorData}>{errors.fullName}</p>
-							) : null}
+							<ErrorMessage name="fullName">
+								{(msg) => <p className={styles.errorData}>{msg}</p>}
+							</ErrorMessage>
 							<label htmlFor="fullName">Имя:</label>
 							<Field
 								type="text"
@@ -53,9 +52,9 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 						</div>
 
 						<div className={styles.aboutMe}>
-							{errors.aboutMe && touched.aboutMe ? (
-								<p className={styles.errorData}>{errors.aboutMe}</p>
-							) : null}
+							<ErrorMessage name="aboutMe">
+								{(msg) => <p className={styles.errorData}>{msg}</p>}
+							</ErrorMessage>
 							<label htmlFor="aboutMe">О себе:</label>
 							<Field
 								type="text"
@@ -71,9 +70,9 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 							<Field type="checkbox" name="lookingForAJob" id="lookingForAJob" />
 						</div>
 						<div className={styles.lookingForAJobDescription}>
-							{errors.lookingForAJobDescription && touched.lookingForAJobDescription ? (
-								<p className={styles.errorData}>{errors.lookingForAJobDescription}</p>
-							) : null}
+							<ErrorMessage name="lookingForAJobDescription">
+								{(msg) => <p className={styles.errorData}>{msg}</p>}
+							</ErrorMessage>
 							<label htmlFor="lookingForAJobDescription">Профессиональные умения:</label>
 							<Field
 								type="text"
@@ -102,7 +101,6 @@ const EditProfileInfo = ({ exitDetailedInfo, saveProfile, profile }) => {
 							<button type="submit" className={styles.saveButton}>
 								Сохранить
 							</button>
-							{saved && !status && <span>Сохранено</span>}
 						</div>
 					</Form>
 				)}

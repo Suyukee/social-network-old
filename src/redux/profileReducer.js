@@ -83,6 +83,7 @@ export const saveProfile = (profile, setStatus) => async (dispatch, getState) =>
 		dispatch(getUserProfile(userId));
 	} else {
 		setStatus(response.data.messages);
+		return response.data.messages;
 	}
 };
 
