@@ -43,8 +43,8 @@
 }
 
 .item .right button {
-	padding: 0.8rem;
-	width: 6.25rem;
+	padding: 0.8rem 0;
+	width: 8rem;
 	border-radius: 10px;
 	border: none;
 	background-color: #8774e1;
