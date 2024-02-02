@@ -24,8 +24,9 @@ const Dialogs = (props) => {
 };
 
 const AddMessageForm = (props) => {
-	const addNewMessage = (values) => {
+	const addNewMessage = (values, actions) => {
 		props.sendMessage(values.text);
+		actions.resetForm({ values: { text: '' } });
 	};
 	const Textarea = ({ ...props }) => {
 		const [field] = useField(props);

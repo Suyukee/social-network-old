@@ -11,6 +11,7 @@ let initialState = {
 		{ id: 1, message: 'И это мой первый проект 👍', likesCount: 12 },
 		{ id: 2, message: 'Я учу React 😎', likesCount: 34 },
 	],
+	idNewPost: 3,
 	profile: null,
 	isFetching: false,
 	status: '',
@@ -20,11 +21,12 @@ const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST: {
 			let newPost = {
-				id: 3,
+				id: state.idNewPost,
 				message: action.newPostText,
 				likesCount: 0,
 				liked: false,
 			};
+			state.idNewPost++;
 			return {
 				...state,
 				posts: [...state.posts, newPost],

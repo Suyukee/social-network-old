@@ -16,7 +16,9 @@ const Post = (props) => {
 				<p>{props.message}</p>
 				<button onClick={likePost} className={styles.likeContainer}>
 					<LikePostIcon liked={liked} />
-					<span className={liked ? styles.liked : undefined}>{likesCount}</span>
+					<span className={liked ? styles.liked : undefined}>
+						{liked ? likesCount + 1 : likesCount}
+					</span>
 				</button>
 			</div>
 		</div>

@@ -17,8 +17,9 @@ const MyPosts = (props) => {
 };
 
 const AddNewPostForm = (props) => {
-	const addNewMessage = (values) => {
+	const addNewMessage = (values, actions) => {
 		props.addPost(values.text);
+		actions.resetForm({ values: { text: '' } });
 	};
 	const Textarea = ({ ...props }) => {
 		const [field] = useField(props);
