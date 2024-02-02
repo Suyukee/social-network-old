@@ -49,7 +49,7 @@ const Navbar = (props) => {
 			<div className={styles.auth}>
 				{props.isAuth ? (
 					<div>
-						{props.login} <button onClick={props.logout}>logout</button>
+						{props.login} <button onClick={props.logout}>Выйти</button>
 					</div>
 				) : (
 					<NavLink
