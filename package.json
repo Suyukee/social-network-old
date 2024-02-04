@@ -1,8 +1,8 @@
 {
 	"name": "social-network",
 	"version": "0.1.0",
+	"homepage": "https://suyukee.github.io/social-network",
 	"private": true,
-	"homepage": "https://suyukee.github.io/social-network/",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/react": "^13.4.0",
