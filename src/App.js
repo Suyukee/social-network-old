@@ -1,10 +1,11 @@
 import { Component, Suspense, lazy } from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route, useParams, Navigate } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
 import NavbarContainer from './components/Navbar/NavbarContainer';
+import './App.css';
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'));
@@ -33,6 +34,7 @@ class App extends Component {
 					<NavbarContainer />
 					<Suspense fallback={<Preloader />}>
 						<Routes>
+							<Route path="/" element={<Navigate to="/profile" />} />
 							<Route path="/profile/:userId?" element={<ProfileContainer />} />
 							<Route path="/dialogs/*" element={<DialogsContainer />} />
 							<Route path="/users" element={<UsersContainer />} />

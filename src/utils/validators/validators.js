@@ -8,7 +8,7 @@ export const textFormValidate = (values) => {
 	return errors;
 };
 
-export const usersLoginFormValidate = (values) => {
+export const usersLoginFormValidate = (values, captchaUrl) => {
 	const errors = {};
 	if (!values.email) {
 		errors.email = 'Введите email';

@@ -7,11 +7,4 @@ body {
 	font-family: Inter;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: #121212;
-	overflow-x: hidden;
-}
-
-.content {
-	margin-left: 80px;
-	width: 100%;
 }

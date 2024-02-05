@@ -5,11 +5,17 @@ import { login } from '../../redux/authReducer';
 import { Navigate } from 'react-router-dom';
 import { usersLoginFormValidate } from '../../utils/validators/validators';
 
-const Login = ({ login, isAuth }) => {
+const Login = ({ login, isAuth, captchaUrl }) => {
 	const submit = (formData, actions) => {
-		login(formData.email, formData.password, formData.rememberMe, actions.setStatus);
+		login(
+			formData.email,
+			formData.password,
+			formData.rememberMe,
+			formData.captcha,
+			actions.setStatus,
+		);
 		actions.setSubmitting(false);
-		actions.resetForm({ values: { email: '', password: '' } });
+		actions.resetForm({ values: { email: '', password: '', captcha: '' } });
 	};
 
 	if (isAuth) {
@@ -19,7 +25,7 @@ const Login = ({ login, isAuth }) => {
 	return (
 		<div className={styles.wrapper}>
 			<Formik
-				initialValues={{ login: '', password: '', rememberMe: false }}
+				initialValues={{ login: '', password: '', rememberMe: false, captcha: '' }}
 				validate={usersLoginFormValidate}
 				onSubmit={submit}
 			>
@@ -48,6 +54,19 @@ const Login = ({ login, isAuth }) => {
 								<p className={styles.errorData}>{errors.password}</p>
 							) : null}
 						</div>
+
+						{captchaUrl && (
+							<div className={styles.captcha}>
+								<img src={captchaUrl} alt="" />
+								<Field
+									type="text"
+									name="captcha"
+									placeholder="Введите символы с картинки"
+									required
+								/>
+							</div>
+						)}
+
 						<button type="submit">Войти</button>
 					</Form>
 				)}
@@ -59,6 +78,7 @@ const Login = ({ login, isAuth }) => {
 const mapStateToProps = (state) => {
 	return {
 		isAuth: state.auth.isAuth,
+		captchaUrl: state.auth.captchaUrl,
 	};
 };
 

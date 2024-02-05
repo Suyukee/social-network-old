@@ -1,0 +1,9 @@
+body {
+	background-color: #121212;
+	overflow-x: hidden;
+}
+
+.content {
+	margin-left: 80px;
+	width: 100%;
+}
